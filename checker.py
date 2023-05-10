@@ -8,7 +8,7 @@ while True:
     key = cv2.waitKey(1) & 0xFF
     img = cam.read()  # Capture frame by frame
     src = img
-    gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(src), cv2.COLOR_BGR2GRAY)
 
     faces = face_cascade.detectMultiScale(
         gray,
