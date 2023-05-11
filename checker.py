@@ -1,3 +1,7 @@
+import sys
+
+sys.path.append('/usr/local/lib/python3.10/site-packages')
+
 import cv2
 
 cam = cv2.VideoCapture(0)
@@ -6,9 +10,8 @@ face_cascade = cv2.CascadeClassifier("cascade_face.xml")
 
 while True:
     key = cv2.waitKey(1) & 0xFF
-    img = cam.read()  # Capture frame by frame
-    src = img
-    gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+    ret, img = cam.read()  # Capture frame by frame
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     faces = face_cascade.detectMultiScale(
         gray,
@@ -27,5 +30,3 @@ while True:
         break
 cam.release()
 cv2.destroyAllWindows()
-
-
